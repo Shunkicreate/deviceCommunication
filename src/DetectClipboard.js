@@ -16,7 +16,7 @@ export const RegisterEvents = () => {
     useEffect(() => {
         document.addEventListener("keydown", keyFunction, false)
         document.addEventListener("copy", copyFunction, false)
-    }   
+    }
     )
     return (
         <div>
