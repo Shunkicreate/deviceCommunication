@@ -1,32 +1,42 @@
-import React from 'react';
-import firebase from 'firebase';
-
+import React, { useEffect, useState } from 'react'
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import 'firebase/auth'
 const Signin = () => {
 
-    const signInWithGoogle = () => {
-        // Googleプロバイダオブジェクトのインスタンスを作成
-        const provider = new firebase.auth.GoogleAuthProvider()
-        // ポップアップウィンドウでログインを行う場合はsignInWithPopupを呼び出す
-        firebase.auth().signInWithPopup(provider)
-        .then(user => {
-            alert("success : " + user.user.displayName + "さんでログインしました");
-          })
-          .catch(error => {
-              alert(error.message);
-          });
-    }
-    
-    
-    return (
-            <div>
-                <div className="login">
-                    <h1>ログイン</h1>
-                </div>
-                <div className="signin_button">
-                    <img src="../btn_google_signin.png" onClick={()=>signInWithGoogle()} alt="google signin"/>
-                </div>
-            </div>
-        );
+  //   // Googleプロバイダオブジェクトのインスタンスを作成
+    const provider = new GoogleAuthProvider();
+
+  const auth = getAuth();
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      // The signed-in user info.
+      const user = result.user;
+      // ...
+    }).catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      // ...
+    });
+
+  return (
+    <div>
+      <div className="login">
+        <h1>ログインhehehhe</h1>
+      </div>
+      <div className="signin_button">
+        <button onClick={() => signInWithPopup()}
+        />ajdlasjdlasjd
+      </div>
+    </div>
+  );
 }
 
 export default Signin

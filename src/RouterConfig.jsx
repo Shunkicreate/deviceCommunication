@@ -5,6 +5,7 @@ import { Game } from "./Game";
 import Register from "./Register";
 import Signin from "./Login";
 import Mypage from "./MyPage";
+import { AuthLogin } from "./AuthLogin"
 // import { Result } from "./result";
 
 export const RouterConfig = () => {
@@ -17,6 +18,7 @@ export const RouterConfig = () => {
           <Route path={`/register/`} element={<Register />} />
           <Route path={`/login/`} element={<Signin />} />
           <Route path={`/mypage`} element={<Mypage />} />
+          {/* <Route path={`/authlogin`} element={<AuthLogin />} /> */}
           {/* <Route path="result" element={<Result/>}/> */}
         </Routes>
       </BrowserRouter>
