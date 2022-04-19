@@ -3,9 +3,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { RegisterEvents } from "./DetectClipboard";
 import { Game } from "./Game";
 import Register from "./Register";
-import Signin from "./Login";
+import Signin from "./SignIn";
 import Mypage from "./MyPage";
-import { AuthLogin } from "./AuthLogin"
+// import { AuthLogin } from "./AuthLogin"
 // import { Result } from "./result";
 
 export const RouterConfig = () => {
