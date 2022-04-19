@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const copy = () => {
     var copyText = document.querySelector("#input");
     copyText.select();
     copyText.execCommand("copy");
 }
+const keyFunction = () => {
+    // console.log("key is pressed")
+}
+
+const copyFunction = () => {
+    console.log("copied!")
+}
 export const RegisterEvents = () => {
+    useEffect(() => {
+        document.addEventListener("keydown", keyFunction, false)
+        document.addEventListener("copy", copyFunction, false)
+    }   
+    )
     return (
         <div>
             <button onClick={copy}>
